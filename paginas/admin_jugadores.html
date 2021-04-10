@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Administrador de jugadores</title>
+    <link href="./css/bootstrap.min.css" rel="stylesheet" />
+  </head>
+  <body style="overflow-x: hidden">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-body">
+                <div
+                  class="card-title d-flex justify-content-between align-items-center"
+                >
+                  <strong>Jugadores <span class="nombreEquipo"></span></strong>
+                  <strong id="cuentaJugadoresAgregados"></strong>
+                </div>
+                <div class="card-text" id="contenedorListaJugadores">
+                  <ul id="listaJugadores" class="list-group"></ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-body">
+                <div class="card-title">
+                  <strong
+                    >Agregar jugador a <span class="nombreEquipo"></span
+                  ></strong>
+                </div>
+                <div class="card-text">
+                  <!-- <div class="row">
+                      <div class="col-sm-4 offset-sm-2">
+                        <img style="width: 200px" src="" alt="" id="logoEquipo" />
+                      </div>
+                    </div> -->
+                  <form class="form-horizontal" id="formularioAgregarJugador">
+                    <!-- <input type="hidden" id="logoJugadorAgregar" /> -->
+                    <input type="hidden" id="equipo" />
+                    <!-- <div class="form-group" style="margin-left: 20px">
+                        <button
+                          id="seleccionarLogoJugadorAgregar"
+                          class="btn btn-sm btn-secondary"
+                        >
+                          Seleccionar logotipo
+                        </button>
+                        <button
+                          id="eliminarSeleccionLogoJugadorAgregar"
+                          style="display: none"
+                          class="btn btn-sm btn-danger"
+                        >
+                          Eliminar logotipo
+                        </button>
+                      </div> -->
+                    <!-- <div class="form-group">
+                        <label for="nombre">Liga</label>
+                        <select
+                          name=""
+                          id="seleccionadorLigaJugador"
+                          class="form-control"
+                        ></select>
+                      </div> -->
+                    <div class="form-group">
+                      <label for="nombre">Nombre **</label>
+                      <input
+                        type="text"
+                        id="nombreJugadorAgregar"
+                        class="form-control"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="nombre">Apellido **</label>
+                      <input
+                        type="text"
+                        id="apellidoJugadorAgregar"
+                        class="form-control"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="nombre">Dorsal **</label>
+                      <input
+                        type="text"
+                        id="numeroJugadorAgregar"
+                        class="form-control"
+                      />
+                    </div>
+
+                    <div class="form-group">
+                      <button type="submit" class="float-right btn btn-primary">
+                        Agregar
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./js/jquery/jquery-3.6.0.min.js"></script>
+    <script src="./js/bootstrap/bootstrap.min.js"></script>
+    <script src="./js/admin_jugadores.js"></script>
+  </body>
+</html>

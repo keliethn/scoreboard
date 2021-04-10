@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Licencia</title>
+    <link href="./css/bootstrap.min.css" rel="stylesheet" />
+  </head>
+  <body style="overflow-x: hidden; overflow-y: hidden; user-select: none">
+    <div id="solicitudLicencia" class="row RowLicencia" style="display: none">
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title"><strong>Solicitud de licencia</strong></div>
+            <div class="card-text">
+              <div class="row">
+                <div class="col-sm-12">
+                  <p>
+                    La instalación actual no posee licencia activa. Rellene los
+                    datos solicitados para generar un archivo de solicitud de
+                    licencia
+                  </p>
+                </div>
+              </div>
+              <hr />
+              <div class="row">
+                <div class="col-sm-12">
+                  <div id="formSolicitudLicencia" class="form-horizontal">
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label for=""><small>Organización **</small> </label>
+                          <input
+                            type="text"
+                            placeholder="Ej.: Ministerio de Deportes"
+                            id="nombreTitularLicencia"
+                            class="form-control form-control-sm text-uppercase"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label for="">
+                            <small>Unidad organizacional</small>
+                          </label>
+                          <input
+                            type="text"
+                            placeholder="Ej.: Comisión de Baloncesto"
+                            id="nombreUnidadOrganizacionalLicencia"
+                            class="form-control form-control-sm text-uppercase"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label for=""
+                            ><small>Estado/Provincia **</small>
+                          </label>
+                          <input
+                            type="text"
+                            id="estadoTitularLicencia"
+                            class="form-control form-control-sm text-uppercase"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label for=""><small>País **</small> </label>
+                          <input
+                            type="text"
+                            id="paisTitularLicencia"
+                            class="form-control form-control-sm text-uppercase"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <div class="form-group">
+                          <label for=""><small>Email</small> </label>
+                          <input
+                            type="email"
+                            id="correoTitularLicencia"
+                            class="form-control form-control-sm"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <div class="form-group">
+                          <button
+                            id="btnGenerarSolicitudLicencia"
+                            class="btn btn-primary btn-sm"
+                          >
+                            Generar archivo de solicitud
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      id="confirmacionLicencia"
+      class="row RowLicencia"
+      style="display: none"
+    >
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title"><strong>Cargar licencia</strong></div>
+            <div class="card-text">
+              <div class="row">
+                <div class="col-sm-12">
+                  <p>Seleccione el archivo de licencia a instalar</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div id="formArchivoLicencia" class="form-horizontal">
+                    <button
+                      class="btn btn-primary btn-block btnCargarArchivoLicencia"
+                    >
+                      Cargar Licencia
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="infoLicencia" class="row RowLicencia" style="display: none">
+      <div id="info" class="col-sm-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title">
+              <strong>Scoreboard</strong>
+            </div>
+            <div class="card-text">
+              <p>
+                Se autoriza el uso de la presente aplicación a: <br />
+                <strong id="infoTitularLicencia" class="text-uppercase"></strong
+                ><br />
+                <span id="infoUbicacionLicencia" class="text-uppercase"></span
+                ><br />
+                <span id="infoAltaLicencia" class="text-uppercase"></span>
+                <br />
+                <span id="infoIdLicencia" class="text-uppercase"></span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="errorLicencia" class="row RowLicencia" style="display: none">
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="alert alert-danger">
+              <div class="card-title text-uppercase">error</div>
+              <div class="card-text">
+                <p>
+                  Ha ocurrido un error al verificar su licencia. Esto suele
+                  ocurrir debido a que el id de la máquina no corresponde con el
+                  generado al momento de la activación.
+                </p>
+                <p>
+                  El id de máquina suele cambiar debido a alguna actualización
+                  en el hardware de este dispositivo o debido a algún cambio en
+                  el nombre del equipo. Por favor verifique que no haya ocurrido
+                  ningún cambio en el dispositivo.
+                </p>
+                <p>
+                  En caso que el error persista, utilice el botón de abajo para
+                  crear un arhivo de regeneración de licencia y contacte a su
+                  representante de soporte para generar un nuevo archivo de
+                  licencia.
+                </p>
+                <p>
+                  <button
+                    id="btnGenerarRegeneracionLicencia"
+                    class="btn btn-primary btn-block"
+                  >
+                    1. Crear archivo de regeneración de licencia
+                  </button>
+                  <button
+                    class="btn btn-success btn-block mt-1 btnCargarArchivoLicencia"
+                  >
+                    2. Cargar nuevo archivo de licencia
+                  </button>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./js/jquery/jquery-3.6.0.min.js"></script>
+    <script src="./js/bootstrap/bootstrap.min.js"></script>
+    <script src="./js/admin_licencia.js"></script>
+  </body>
+</html>

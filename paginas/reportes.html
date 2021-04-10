@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Historial de partidos</title>
+    <link href="./css/bootstrap.min.css" rel="stylesheet" />
+  </head>
+  <body style="overflow-x: hidden; overflow-y: hidden; user-select: none">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-2">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <strong>Parámetros de búsqueda</strong>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <label for="nombre"><small>Liga</small> </label>
+                      <select
+                        name=""
+                        id="seleccionadorLiga"
+                        class="form-control form-control-sm"
+                      ></select>
+                    </div>
+                  </div>
+                </div>
+                <div class="row NombreEquipos" style="display: none">
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <label for="nombre"><small>Home club</small> </label>
+                      <select
+                        name=""
+                        id="seleccionadorHomeclub"
+                        class="form-control form-control-sm"
+                      ></select>
+                    </div>
+                  </div>
+                </div>
+                <div class="row NombreEquipos" style="display: none">
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <label for="nombre"><small>Visitante</small> </label>
+                      <select
+                        name=""
+                        id="seleccionadorVisitante"
+                        class="form-control form-control-sm"
+                      ></select>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <label for="nombre"><small>Fecha Inicio</small> </label>
+                      <input
+                        type="date"
+                        id="fechaInicial"
+                        class="form-control form-control-sm"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <label for="nombre"><small>Fecha Fin</small> </label>
+                      <input
+                        type="date"
+                        id="fechaFinal"
+                        class="form-control form-control-sm"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="row" id="contenedorBtnBuscar" style="display: none">
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <button id="btnBuscar" class="btn btn-success btn-block">
+                        Buscar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="row"
+                  id="contenedorBtnGuardar"
+                  style="display: none"
+                >
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <button id="btnGuardar" class="btn btn-primary btn-block">
+                        Guardar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-10">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <h5>Reporte de partidos</h5>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div style="overflow: hidden; width: 100%; display: block">
+                      <table class="table mb-0 table-striped table-sm">
+                        <thead>
+                          <tr>
+                            <th style="width: 14%"><small>Fecha</small></th>
+                            <th style="width: 14%"><small>Home</small></th>
+                            <th style="width: 14%"><small>Visitante</small></th>
+                            <th style="width: 12%"><small>Pt. Home</small></th>
+                            <th style="width: 12%">
+                              <small>Pt. Visitante</small>
+                            </th>
+                            <th style="width: 14%"><small>F. Home</small></th>
+                            <th style="width: 14%">
+                              <small>F. Visitante</small>
+                            </th>
+                            <th style="width: 6%"></th>
+                          </tr>
+                        </thead>
+                      </table>
+                    </div>
+                    <div
+                      id="contenedorReporte"
+                      style="overflow-y: scroll; width: 100%; display: block"
+                    >
+                      <table class="table mb-0 table-striped table-sm">
+                        <tbody id="bodyReporte"></tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/jquery/jquery-3.6.0.min.js"></script>
+    <script src="./js/bootstrap/bootstrap.min.js"></script>
+    <script src="./js/reportes.js"></script>
+  </body>
+</html>

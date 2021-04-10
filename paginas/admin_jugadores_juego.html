@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Asignar Jugadores</title>
+    <link href="./css/bootstrap.min.css" rel="stylesheet" />
+  </head>
+  <body style="overflow-x: hidden; overflow-y: hidden">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="card">
+                  <div class="card-body">
+                    <div
+                      class="card-title d-flex justify-content-between align-items-center"
+                    >
+                      <strong>Jugadores disponibles</strong>
+                      <strong id="cuentaJugadoresDisponibles"></strong>
+                    </div>
+                    <div
+                      class="card-text contenedorListaJugadores"
+                      id="contenedorListaJugadores"
+                    >
+                      <ul id="listaJugadores" class="list-group"></ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="card-title">Jugadores seleccionados</div>
+                    <div
+                      class="card-text contenedorListaJugadores"
+                      id="contenedorListaJugadoresSeleccionados"
+                    >
+                      <ul
+                        id="listaJugadoresSeleccionados"
+                        class="list-group"
+                      ></ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <button
+                  style="display: none"
+                  id="btnAgregarListaJugadores"
+                  class="btn btn-sm btn-primary float-right"
+                >
+                  Agregar lista a juego
+                </button>
+                <button
+                  style="display: none"
+                  id="btnSustituirJugador"
+                  class="btn btn-sm btn-primary float-right"
+                >
+                  Aplicar sustitución de jugador
+                </button>
+                <button
+                  style="display: none"
+                  id="btnRetirarJugador"
+                  class="btn btn-sm btn-primary float-right"
+                >
+                  Aplicar retiro de jugador
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./js/jquery/jquery-3.6.0.min.js"></script>
+    <script src="./js/bootstrap/bootstrap.min.js"></script>
+    <script src="./js/admin_jugadores_juego.js"></script>
+  </body>
+</html>

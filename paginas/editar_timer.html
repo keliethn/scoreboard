@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Editar Temporizador</title>
+    <link href="./css/bootstrap.min.css" rel="stylesheet" />
+  </head>
+  <body style="overflow-x: hidden">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="card-text">
+              <form id="formGuardarEditarTimer">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="">Minutos</label>
+                      <input
+                        type="number"
+                        id="inputEditarMinutos"
+                        class="form-control form-control-lg"
+                        min="0"
+                        max="59"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="">Segundos</label>
+                      <input
+                        type="number"
+                        id="inputEditarSegundos"
+                        class="form-control form-control-lg"
+                        min="0"
+                        max="59"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <button
+                      id="btnGuardarEditarTimer"
+                      class="float-right mr-4 btn btn-primary"
+                    >
+                      Guardar
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/jquery/jquery-3.6.0.min.js"></script>
+    <script src="./js/bootstrap/bootstrap.min.js"></script>
+    <script src="./js/editar_timer.js"></script>
+  </body>
+</html>

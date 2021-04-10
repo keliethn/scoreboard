@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Administrador de Ligas</title>
+    <link href="./css/bootstrap.min.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-body">
+                <div
+                  class="card-title d-flex justify-content-between align-items-center"
+                >
+                  <strong>Ligas</strong>
+                  <strong id="cuentaLigasAgregados"></strong>
+                </div>
+                <div class="card-text" id="contenedorListaLigas">
+                  <ul id="listaLigas" class="list-group"></ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-body">
+                <div class="card-title">
+                  <strong>Agregar Liga</strong>
+                </div>
+                <div class="card-text">
+                  <!-- <div class="row">
+                      <div class="col-sm-4 offset-sm-2">
+                        <img style="width: 200px" src="" alt="" id="logoLiga" />
+                      </div>
+                    </div> -->
+                  <form class="form-horizontal" id="formularioAgregarLiga">
+                    <!-- <input type="hidden" id="logoLigaAgregar" /> -->
+                    <!-- <div class="form-group" style="margin-left: 20px">
+                        <button
+                          id="seleccionarLogoLigaAgregar"
+                          class="btn btn-sm btn-secondary"
+                        >
+                          Seleccionar logotipo
+                        </button>
+                        <button
+                          id="eliminarSeleccionLogoLigaAgregar"
+                          style="display: none"
+                          class="btn btn-sm btn-danger"
+                        >
+                          Eliminar logotipo
+                        </button>
+                      </div> -->
+                    <div class="form-group">
+                      <label for="nombre">Nombre de la liga</label>
+                      <input
+                        type="text"
+                        id="nombreLigaAgregar"
+                        class="form-control"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <button type="submit" class="float-right btn btn-primary">
+                        Agregar
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/jquery/jquery-3.6.0.min.js"></script>
+    <script src="./js/bootstrap/bootstrap.min.js"></script>
+    <script src="./js/admin_ligas.js"></script>
+  </body>
+</html>

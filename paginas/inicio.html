@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Baloncesto | Frente Sur Rivas</title>
+    <link href="./css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+      .blink_me {
+        animation: blinker 1s linear infinite;
+      }
+
+      @keyframes blinker {
+        50% {
+          opacity: 0;
+        }
+      }
+      .table-hover tbody tr:hover td,
+      .table-hover tbody tr:hover th {
+        background-color: #f8d7da;
+      }
+    </style>
+  </head>
+  <body
+    style="
+      overflow-x: hidden;
+      overflow-y: hidden;
+      user-select: none;
+      padding: 0.25rem;
+    "
+  >
+    <button
+      id="presentarInfoLicencia"
+      style="position: absolute; right: 5px; bottom: 5px"
+      class="btn btn-info btn-sm"
+    >
+      <small>info</small>
+    </button>
+    <div
+      id="noGamePlaceholder"
+      style="
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 13rem;
+        left: 0;
+        z-index: 10;
+        display: none;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+      <div class="alert alert-info">
+        <p>
+          No existe juego activo. Haga click en
+          <strong>'Crear Juego'</strong> para iniciar un partido
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-10">
+        <div id="contenedorTimer" style="display: none" class="row">
+          <div class="col-lg-12" style="padding-right: 0px">
+            <div class="card">
+              <div class="p-0 card-body">
+                <div class="card-text">
+                  <div class="row">
+                    <div class="col-lg-4"></div>
+                    <div class="text-center col-lg-4">
+                      <h1
+                        id="timer"
+                        class="display-2 font-weight-bold text-danger"
+                        style="
+                          cursor: pointer;
+                          margin-bottom: 0px;
+                          margin-left: auto;
+                          margin-right: auto;
+                        "
+                      >
+                        00:00
+                      </h1>
+                      <div class="row">
+                        <div class="col-lg-12">
+                          <button
+                            id="actualizaPeriodo"
+                            class="font-bold btn btn-danger btn-block btn-sm"
+                          ></button>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="col-lg-4"
+                      style="
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                      "
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="contenedorDataEquipos" style="display: none" class="row">
+          <div class="col-lg-6">
+            <div class="card">
+              <div class="p-1 card-body">
+                <div class="card-title mb-0">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div
+                        style="
+                          display: flex;
+                          justify-items: center;
+                          align-items: center;
+                        "
+                      >
+                        <div
+                          id="bonusHome"
+                          class="alert alert-primary Bonus blink_me"
+                          style="
+                            width: 120px;
+                            position: absolute;
+                            left: 23px;
+                            display: none;
+                          "
+                        >
+                          <h5 class="text-uppercase font-weight-bold">BONUS</h5>
+                        </div>
+                        <img
+                          id="logoHome"
+                          class="mx-auto"
+                          style="width: 80px; height: 80px"
+                          src=""
+                          alt=""
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <h4
+                        style="user-select: none"
+                        id="nombreEquipoHome"
+                        class="text-center text-primary text-uppercase"
+                      ></h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-text" id="contenedorLayoutHome"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="card">
+              <div class="p-1 card-body">
+                <div class="card-title mb-0">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div
+                        style="
+                          display: flex;
+                          justify-items: center;
+                          align-items: center;
+                        "
+                      >
+                        <div
+                          id="bonusVisitante"
+                          class="alert alert-primary Bonus blink_me"
+                          style="
+                            width: 120px;
+                            position: absolute;
+                            right: 12px;
+                            display: none;
+                          "
+                        >
+                          <h5 class="text-uppercase font-weight-bold">BONUS</h5>
+                        </div>
+                        <img
+                          id="logoVisitante"
+                          class="mx-auto"
+                          style="width: 80px; height: 80px"
+                          src=""
+                          alt=""
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <h4
+                        style="user-select: none"
+                        id="nombreEquipoVisitante"
+                        class="text-center text-primary text-uppercase"
+                      ></h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-text" id="contenedorLayoutVisitante"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="row"
+          style="display: none"
+          id="contenedorLayoutTiempoCouch"
+        ></div>
+      </div>
+
+      <div class="col-lg-2">
+        <div class="mb-2 row">
+          <div class="col-lg-12">
+            <ul class="list-group">
+              <li
+                class="list-group-item list-group-item-secondary"
+                style="padding: 0.3rem 1.25rem"
+              >
+                PANTALLA
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between align-items-center"
+                style="padding: 0.3rem 1.25rem"
+              >
+                <button id="abrirProyector" class="btn btn-success btn-sm">
+                  Abrir
+                </button>
+                <button id="cerrarProyector" class="btn btn-danger btn-sm">
+                  Cerrar
+                </button>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between align-items-center"
+                style="padding: 0.3rem 1.25rem"
+              >
+                <button
+                  id="cambiarPosicionPantalla"
+                  class="font-bold btn btn-secondary btn-sm btn-block"
+                >
+                  Cambiar posición
+                </button>
+              </li>
+              <!-- <li
+                class="list-group-item d-flex justify-content-between align-items-center"
+                style="padding: 0.3rem 1.25rem"
+              >
+                <button
+                  id="logoProyector"
+                  class="btn btn-info btn-sm btn-block"
+                >
+                  Logo
+                </button>
+              </li> -->
+              <li
+                class="list-group-item d-flex justify-content-between align-items-center"
+                style="padding: 0.3rem 1.25rem"
+              >
+                <button
+                  id="oscurecerProyector"
+                  class="btn btn-dark btn-sm btn-block"
+                >
+                  Pantalla negra
+                </button>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between align-items-center"
+                style="padding: 0.3rem 1.25rem"
+              >
+                <button
+                  id="publicidadProyector"
+                  class="btn btn-warning btn-sm btn-block"
+                >
+                  Publicidad
+                </button>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between align-items-center"
+                style="padding: 0.3rem 1.25rem"
+              >
+                <button
+                  style="display: none"
+                  id="tablaProyector"
+                  class="btn btn-info btn-sm btn-block"
+                >
+                  Tabla puntos
+                </button>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between align-items-center"
+                style="padding: 0.3rem 1.25rem"
+              >
+                <button
+                  id="pizarraProyector"
+                  class="btn btn-primary btn-sm btn-block"
+                >
+                  Pizarra
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <ul class="list-group">
+              <li
+                class="list-group-item list-group-item-secondary"
+                style="padding: 0.3rem 1.25rem"
+              >
+                ADMINISTRACIÓN
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between align-items-center"
+                style="padding: 0.3rem 1.25rem"
+              >
+                <button id="adminLigas" class="btn btn-light btn-sm btn-block">
+                  Ligas
+                </button>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between align-items-center"
+                style="padding: 0.3rem 1.25rem"
+              >
+                <button
+                  id="adminEquipos"
+                  class="btn btn-light btn-sm btn-block"
+                >
+                  Equipos
+                </button>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between align-items-center"
+                style="padding: 0.3rem 1.25rem"
+              >
+                <button
+                  id="adminPublicidad"
+                  class="btn btn-light btn-sm btn-block"
+                >
+                  Comerciales
+                </button>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between align-items-center"
+                style="padding: 0.3rem 1.25rem"
+              >
+                <button
+                  id="adminReportes"
+                  class="btn btn-light btn-sm btn-block"
+                >
+                  Historial partidos
+                </button>
+              </li>
+              <li
+                id="contenedorIniciarJuego"
+                class="list-group-item d-flex justify-content-between align-items-center"
+                style="padding: 0.3rem 1.25rem"
+              >
+                <button
+                  id="iniciarJuego"
+                  style="display: none"
+                  class="btn btn-success btn-sm btn-block"
+                >
+                  Crear Juego
+                </button>
+              </li>
+              <li
+                id="contenedorTerminarJuego"
+                class="list-group-item d-flex justify-content-between align-items-center"
+                style="padding: 0.3rem 1.25rem"
+              >
+                <button
+                  id="terminarJuego"
+                  style="display: none"
+                  class="btn btn-danger btn-sm btn-block"
+                >
+                  Terminar Juego
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/jquery/jquery-3.6.0.min.js"></script>
+    <script src="./js/bootstrap/bootstrap.min.js"></script>
+    <script src="./js/inicio.js"></script>
+  </body>
+</html>
